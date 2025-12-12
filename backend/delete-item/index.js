@@ -11,9 +11,9 @@ exports.handler = async (event) => {
         statusCode: 400,
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          'Access-Control-Allow-Origin': '*',
         },
-        body: JSON.stringify({ error: 'Missing itemId parameter' })
+        body: JSON.stringify({ error: 'Missing itemId parameter' }),
       };
     }
 
@@ -21,8 +21,8 @@ exports.handler = async (event) => {
       TableName: process.env.TABLE_NAME,
       Key: {
         userId: userId,
-        itemId: itemId
-      }
+        itemId: itemId,
+      },
     };
 
     await ddb.delete(params).promise();
@@ -33,9 +33,9 @@ exports.handler = async (event) => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       },
-      body: JSON.stringify({ message: 'Item deleted successfully', itemId })
+      body: JSON.stringify({ message: 'Item deleted successfully', itemId }),
     };
   } catch (error) {
     console.error('Error deleting item:', error);
@@ -43,9 +43,12 @@ exports.handler = async (event) => {
       statusCode: 500,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ error: 'Internal server error', message: error.message })
+      body: JSON.stringify({
+        error: 'Internal server error',
+        message: error.message,
+      }),
     };
   }
 };

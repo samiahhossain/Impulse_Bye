@@ -12,27 +12,29 @@ exports.handler = async (event) => {
         statusCode: 400,
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          'Access-Control-Allow-Origin': '*',
         },
-        body: JSON.stringify({ error: 'Missing itemId parameter' })
+        body: JSON.stringify({ error: 'Missing itemId parameter' }),
       };
     }
 
     const { name, url, price, targetYears, expectedReturn } = body;
 
     // Calculate future value
-    const fv = Number(price) * Math.pow(1 + Number(expectedReturn), Number(targetYears));
+    const fv =
+      Number(price) * Math.pow(1 + Number(expectedReturn), Number(targetYears));
 
     const params = {
       TableName: process.env.TABLE_NAME,
       Key: {
         userId: userId,
-        itemId: itemId
+        itemId: itemId,
       },
-      UpdateExpression: 'SET #name = :name, #url = :url, price = :price, targetYears = :targetYears, expectedReturn = :expectedReturn, fv = :fv',
+      UpdateExpression:
+        'SET #name = :name, #url = :url, price = :price, targetYears = :targetYears, expectedReturn = :expectedReturn, fv = :fv',
       ExpressionAttributeNames: {
         '#name': 'name',
-        '#url': 'url'
+        '#url': 'url',
       },
       ExpressionAttributeValues: {
         ':name': name,
@@ -40,9 +42,9 @@ exports.handler = async (event) => {
         ':price': Number(price),
         ':targetYears': Number(targetYears),
         ':expectedReturn': Number(expectedReturn),
-        ':fv': fv
+        ':fv': fv,
       },
-      ReturnValues: 'ALL_NEW'
+      ReturnValues: 'ALL_NEW',
     };
 
     const result = await ddb.update(params).promise();
@@ -53,9 +55,9 @@ exports.handler = async (event) => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       },
-      body: JSON.stringify(result.Attributes)
+      body: JSON.stringify(result.Attributes),
     };
   } catch (error) {
     console.error('Error updating item:', error);
@@ -63,9 +65,12 @@ exports.handler = async (event) => {
       statusCode: 500,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ error: 'Internal server error', message: error.message })
+      body: JSON.stringify({
+        error: 'Internal server error',
+        message: error.message,
+      }),
     };
   }
 };

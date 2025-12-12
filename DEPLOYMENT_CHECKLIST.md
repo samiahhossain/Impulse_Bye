@@ -31,6 +31,7 @@ Use this checklist when deploying to AWS for your CSCI3124 project.
 ## ✅ Phase 2: Lambda Functions
 
 ### create-item Lambda
+
 - [ ] Navigate to `backend/create-item`
 - [ ] Run `npm install`
 - [ ] Create `function.zip`
@@ -43,6 +44,7 @@ Use this checklist when deploying to AWS for your CSCI3124 project.
 - [ ] Test function with sample event
 
 ### list-items Lambda
+
 - [ ] Navigate to `backend/list-items`
 - [ ] Run `npm install`
 - [ ] Create `function.zip`
@@ -55,6 +57,7 @@ Use this checklist when deploying to AWS for your CSCI3124 project.
 - [ ] Test function with sample event
 
 ### delete-item Lambda
+
 - [ ] Navigate to `backend/delete-item`
 - [ ] Run `npm install`
 - [ ] Create `function.zip`
@@ -69,18 +72,21 @@ Use this checklist when deploying to AWS for your CSCI3124 project.
 ## ✅ Phase 3: API Gateway
 
 ### Create API
+
 - [ ] Go to API Gateway console
 - [ ] Create new REST API
 - [ ] Name: `ImpulseByeAPI`
 - [ ] Description added
 
 ### Create Resources
+
 - [ ] Create resource `/items`
 - [ ] Enable CORS on `/items`
 - [ ] Create resource `/items/{itemId}`
 - [ ] Enable CORS on `/items/{itemId}`
 
 ### Create Methods
+
 - [ ] Create `POST /items` → `impulse-bye-create-item` Lambda
 - [ ] Enable Lambda Proxy Integration
 - [ ] Create `GET /items` → `impulse-bye-list-items` Lambda
@@ -89,12 +95,14 @@ Use this checklist when deploying to AWS for your CSCI3124 project.
 - [ ] Enable Lambda Proxy Integration
 
 ### Enable CORS (All Methods)
+
 - [ ] Enable CORS on POST /items
 - [ ] Enable CORS on GET /items
 - [ ] Enable CORS on DELETE /items/{itemId}
 - [ ] Enable CORS on OPTIONS methods (auto-created)
 
 ### Deploy API
+
 - [ ] Click "Deploy API"
 - [ ] Create stage: `prod`
 - [ ] Deploy to `prod` stage
@@ -106,21 +114,25 @@ Use this checklist when deploying to AWS for your CSCI3124 project.
 Using curl or Postman:
 
 ### Test Create Item
+
 - [ ] POST to `/items` with valid payload
 - [ ] Verify 201 response
 - [ ] Check item created in DynamoDB
 
 ### Test List Items
+
 - [ ] GET `/items?userId=testuser`
 - [ ] Verify 200 response
 - [ ] Check items returned
 
 ### Test Delete Item
+
 - [ ] DELETE `/items/{itemId}?userId=testuser`
 - [ ] Verify 200 response
 - [ ] Check item removed from DynamoDB
 
 ### Check CORS
+
 - [ ] Verify CORS headers in responses
 - [ ] Test from browser console (fetch)
 
@@ -137,23 +149,27 @@ Using curl or Postman:
 ## ✅ Phase 6: S3 Static Hosting
 
 ### Create Bucket
+
 - [ ] Create S3 bucket with unique name
 - [ ] Region matches API Gateway region
 - [ ] Unblock all public access (for static website)
 - [ ] Note bucket name
 
 ### Configure Website Hosting
+
 - [ ] Enable static website hosting
 - [ ] Set index document: `index.html`
 - [ ] Set error document: `index.html`
 - [ ] Note website endpoint URL
 
 ### Upload Files
+
 - [ ] Upload all files from `dist/` folder
 - [ ] Set permissions to public-read
 - [ ] Verify files uploaded successfully
 
 ### Set Bucket Policy
+
 - [ ] Create bucket policy for public read access
 - [ ] Apply policy to bucket
 - [ ] Verify policy applied
@@ -174,12 +190,14 @@ Using curl or Postman:
 ## ✅ Phase 8: Documentation & Presentation
 
 ### Architecture Diagram
+
 - [ ] Create diagram using diagrams.net
 - [ ] Include all AWS services
 - [ ] Show data flow
 - [ ] Export as PNG/PDF
 
 ### Written Report
+
 - [ ] Introduction - Project description
 - [ ] AWS services - Selection and justification
 - [ ] Architecture - Diagram and explanation
@@ -190,6 +208,7 @@ Using curl or Postman:
 - [ ] Future enhancements - Next features
 
 ### Video Presentation (Max 15 min)
+
 - [ ] Student ID visible at start
 - [ ] Face visible throughout
 - [ ] Slides prepared
@@ -221,11 +240,13 @@ Using curl or Postman:
 ## 🎉 Post-Submission
 
 ### Optional (Keep Running)
+
 - [ ] Monitor CloudWatch logs
 - [ ] Check costs in AWS Billing
 - [ ] Share with friends/portfolio
 
 ### Cleanup (When Done)
+
 - [ ] Delete Lambda functions
 - [ ] Delete API Gateway API
 - [ ] Delete DynamoDB table
@@ -237,6 +258,7 @@ Using curl or Postman:
 ## 📝 Notes
 
 **Estimated Time:**
+
 - Phase 1-2 (Database + Lambda): 30-45 min
 - Phase 3 (API Gateway): 20-30 min
 - Phase 4 (Testing): 15 min
@@ -246,6 +268,7 @@ Using curl or Postman:
 - **Total: 4-6 hours**
 
 **Common Issues:**
+
 - Lambda timeout → Increase timeout setting
 - CORS errors → Re-enable CORS on all methods
 - 403 on S3 → Check bucket policy
@@ -253,6 +276,7 @@ Using curl or Postman:
 - Lambda errors → Check CloudWatch Logs
 
 **Resources:**
+
 - AWS Documentation: https://docs.aws.amazon.com
 - Your DEPLOYMENT.md file
 - Your ARCHITECTURE.md file

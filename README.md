@@ -21,6 +21,7 @@ Impulse Bye is a wishlist tracking application that helps you think twice before
 This is a full-stack cloud application built for AWS:
 
 ### Frontend
+
 - **Framework**: React 19 + Vite
 - **Styling**: Custom CSS with gradients and responsive design
 - **State Management**: React Hooks (useState, useEffect)
@@ -29,17 +30,20 @@ This is a full-stack cloud application built for AWS:
 ### Backend Options
 
 #### Option 1: Mock Server (Development)
+
 - **Runtime**: Node.js + Express
 - **Storage**: In-memory (object store)
 - **CORS**: Enabled for local development
 
 #### Option 2: AWS Lambda + DynamoDB (Production)
+
 - **Compute**: AWS Lambda (serverless functions)
 - **Database**: Amazon DynamoDB (NoSQL)
 - **API**: Amazon API Gateway (REST API)
 - **Storage**: Amazon S3 (static site hosting)
 
 ### AWS Services Used (meets project requirements)
+
 - ✅ **Compute**: AWS Lambda
 - ✅ **Storage**: Amazon S3 (for frontend hosting)
 - ✅ **Database**: Amazon DynamoDB
@@ -50,6 +54,7 @@ This is a full-stack cloud application built for AWS:
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ and npm
 - AWS Account (for production deployment)
 - AWS CLI configured (optional)
@@ -59,32 +64,39 @@ This is a full-stack cloud application built for AWS:
 #### 1. Install Dependencies
 
 **Frontend:**
+
 ```bash
 cd frontend
 npm install
 ```
 
 **Backend (Mock Server):**
+
 ```bash
 cd backend/mock-server
 npm install
 ```
 
 #### 2. Start Backend Server
+
 ```bash
 cd backend/mock-server
 node index.js
 ```
+
 Server will run on `http://localhost:4000`
 
 #### 3. Start Frontend Development Server
+
 ```bash
 cd frontend
 npm run dev
 ```
+
 Frontend will run on `http://localhost:5173`
 
 #### 4. Open in Browser
+
 Navigate to `http://localhost:5173` and start adding items!
 
 ---
@@ -108,6 +120,7 @@ aws dynamodb create-table \
 ### Step 2: Deploy Lambda Functions
 
 **Create IAM Role** (use existing LabRole in AWS Academy):
+
 - Attach policies: `AmazonDynamoDBFullAccess`, `CloudWatchLogsFullAccess`
 
 **Package and deploy each Lambda:**
@@ -258,6 +271,7 @@ Potential Gain = $201.28 (40% growth)
 - **DynamoDB**: Data encrypted at rest
 
 ### Production Enhancements (Future)
+
 - Add Amazon Cognito for user authentication
 - Implement API key/authorization in API Gateway
 - Add AWS WAF for DDoS protection
@@ -269,9 +283,11 @@ Potential Gain = $201.28 (40% growth)
 ## 💰 Cost Analysis
 
 ### Development (Mock Server)
+
 - **Cost**: $0 (runs locally)
 
 ### AWS Production (estimated monthly costs for low usage)
+
 - **DynamoDB**: ~$0-$1 (on-demand pricing, first 25GB free)
 - **Lambda**: ~$0 (1M requests free tier)
 - **API Gateway**: ~$0-$1 (1M requests = ~$3.50, but low usage)
@@ -279,6 +295,7 @@ Potential Gain = $201.28 (40% growth)
 - **Total**: ~$1-$3/month for personal use
 
 ### Cost Optimization
+
 - Use DynamoDB on-demand pricing for unpredictable traffic
 - Lambda serverless = pay per request only
 - S3 static hosting is cheaper than EC2
@@ -289,6 +306,7 @@ Potential Gain = $201.28 (40% growth)
 ## 🎓 Learning Outcomes
 
 This project demonstrates:
+
 - Full-stack web development with React and Node.js
 - RESTful API design and implementation
 - Serverless architecture (AWS Lambda)
@@ -322,4 +340,3 @@ This project is for educational purposes as part of CSCI3124 Cloud Computing cou
 ## 👤 Author
 
 Built with ❤️ for making better financial decisions!
-

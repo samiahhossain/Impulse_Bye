@@ -29,15 +29,15 @@ function App() {
   }
 
   function handleAddItem(newItem) {
-    setItems(prev => [newItem, ...prev]);
+    setItems((prev) => [newItem, ...prev]);
   }
 
   async function handleUpdateItem(itemId, updatedItem) {
     try {
       const result = await updateItem(userId, itemId, updatedItem);
-      setItems(prev => prev.map(item => 
-        item.itemId === itemId ? result : item
-      ));
+      setItems((prev) =>
+        prev.map((item) => (item.itemId === itemId ? result : item))
+      );
     } catch (err) {
       setError('Failed to update item. Please try again.');
       console.error(err);
@@ -48,7 +48,7 @@ function App() {
   async function handleDeleteItem(itemId) {
     try {
       await deleteItem(userId, itemId);
-      setItems(prev => prev.filter(item => item.itemId !== itemId));
+      setItems((prev) => prev.filter((item) => item.itemId !== itemId));
     } catch (err) {
       setError('Failed to delete item. Please try again.');
       console.error(err);
@@ -85,7 +85,9 @@ function App() {
           <div className="summary-card highlight">
             <h3>If Invested Instead</h3>
             <p className="amount">${totalFutureValue.toFixed(2)}</p>
-            <p className="gain">+${(totalFutureValue - totalPrice).toFixed(2)}</p>
+            <p className="gain">
+              +${(totalFutureValue - totalPrice).toFixed(2)}
+            </p>
           </div>
           <div className="summary-card">
             <h3>Items Tracked</h3>
@@ -98,14 +100,16 @@ function App() {
         ) : items.length === 0 ? (
           <div className="empty-state">
             <h2>📋 Your wishlist is empty</h2>
-            <p>Add items above to see how much they could be worth if invested!</p>
+            <p>
+              Add items above to see how much they could be worth if invested!
+            </p>
           </div>
         ) : (
           <section className="items-grid">
-            {items.map(item => (
-              <ItemCard 
-                key={item.itemId} 
-                item={item} 
+            {items.map((item) => (
+              <ItemCard
+                key={item.itemId}
+                item={item}
                 onDelete={handleDeleteItem}
                 onUpdate={handleUpdateItem}
               />

@@ -4,14 +4,14 @@ const ddb = new AWS.DynamoDB.DocumentClient();
 exports.handler = async (event) => {
   try {
     const userId = event.queryStringParameters?.userId || 'demo';
-    
+
     const params = {
       TableName: process.env.TABLE_NAME,
       KeyConditionExpression: 'userId = :userId',
       ExpressionAttributeValues: {
-        ':userId': userId
+        ':userId': userId,
       },
-      ScanIndexForward: false // Sort by createdAt descending
+      ScanIndexForward: false, // Sort by createdAt descending
     };
 
     const result = await ddb.query(params).promise();
@@ -22,9 +22,9 @@ exports.handler = async (event) => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       },
-      body: JSON.stringify(result.Items || [])
+      body: JSON.stringify(result.Items || []),
     };
   } catch (error) {
     console.error('Error listing items:', error);
@@ -32,9 +32,12 @@ exports.handler = async (event) => {
       statusCode: 500,
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ error: 'Internal server error', message: error.message })
+      body: JSON.stringify({
+        error: 'Internal server error',
+        message: error.message,
+      }),
     };
   }
 };

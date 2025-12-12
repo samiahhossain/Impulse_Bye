@@ -51,6 +51,7 @@ aws dynamodb create-table \
 ```
 
 **Verify:**
+
 ```bash
 aws dynamodb describe-table --table-name ImpulseByeItems
 ```
@@ -144,6 +145,7 @@ aws lambda create-function \
 ```
 
 **Verify:**
+
 ```bash
 aws lambda list-functions --query 'Functions[?starts_with(FunctionName, `impulse-bye`)].FunctionName'
 ```
@@ -161,6 +163,7 @@ aws lambda list-functions --query 'Functions[?starts_with(FunctionName, `impulse
 **Create Resources:**
 
 4. Click "Actions" → "Create Resource"
+
    - Resource Name: `items`
    - Resource Path: `/items`
    - Enable CORS: ✓
@@ -174,17 +177,20 @@ aws lambda list-functions --query 'Functions[?starts_with(FunctionName, `impulse
 **Create Methods:**
 
 6. Select `/items` → "Actions" → "Create Method" → `POST`
+
    - Integration type: Lambda Function
    - Use Lambda Proxy integration: ✓
    - Lambda Function: `impulse-bye-create-item`
    - Click "Save"
 
 7. Select `/items` → "Actions" → "Create Method" → `GET`
+
    - Integration type: Lambda Function
    - Use Lambda Proxy integration: ✓
    - Lambda Function: `impulse-bye-list-items`
 
 8. Select `/items/{itemId}` → "Actions" → "Create Method" → `DELETE`
+
    - Integration type: Lambda Function
    - Use Lambda Proxy integration: ✓
    - Lambda Function: `impulse-bye-delete-item`
@@ -197,11 +203,13 @@ aws lambda list-functions --query 'Functions[?starts_with(FunctionName, `impulse
 **Enable CORS:**
 
 10. Select each resource → "Actions" → "Enable CORS"
-   - Accept defaults → "Enable CORS and replace existing CORS headers"
+
+- Accept defaults → "Enable CORS and replace existing CORS headers"
 
 **Deploy API:**
 
 11. "Actions" → "Deploy API"
+
     - Deployment stage: `[New Stage]`
     - Stage name: `prod`
     - Click "Deploy"
@@ -281,6 +289,7 @@ Visit this URL to see your app! 🎉
 ### Test API Endpoints
 
 **Create Item:**
+
 ```bash
 curl -X POST https://YOUR_API_URL/prod/items \
   -H "Content-Type: application/json" \
@@ -295,11 +304,13 @@ curl -X POST https://YOUR_API_URL/prod/items \
 ```
 
 **List Items:**
+
 ```bash
 curl https://YOUR_API_URL/prod/items?userId=testuser
 ```
 
 **Delete Item:**
+
 ```bash
 curl -X DELETE https://YOUR_API_URL/prod/items/ITEM_ID?userId=testuser
 ```
@@ -383,20 +394,24 @@ aws apigateway delete-rest-api --rest-api-id YOUR_API_ID
 ## Troubleshooting
 
 ### CORS Errors
+
 - Verify CORS is enabled on all API Gateway methods
 - Check Lambda functions return CORS headers
 - Clear browser cache
 
 ### 403 Forbidden on S3
+
 - Check bucket policy is applied
 - Verify files are public-read
 - Check bucket name in URL matches
 
 ### Lambda Timeout
+
 - Increase timeout in Lambda configuration
 - Check DynamoDB table exists and is accessible
 
 ### Items Not Appearing
+
 - Check API URL in frontend .env
 - Verify userId is consistent
 - Check browser Network tab for errors

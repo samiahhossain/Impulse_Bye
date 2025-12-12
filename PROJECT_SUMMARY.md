@@ -13,6 +13,7 @@ All components are implemented and ready for local testing and AWS deployment.
 ### What's Been Built:
 
 #### Frontend (React + Vite)
+
 - ✅ Main application with state management (`App.jsx`)
 - ✅ Add item form with validation (`AddItemForm.jsx`)
 - ✅ Item card component with visualizations (`ItemCard.jsx`)
@@ -21,12 +22,14 @@ All components are implemented and ready for local testing and AWS deployment.
 - ✅ Responsive design for mobile and desktop
 
 #### Backend - Local Development
+
 - ✅ Express mock server with CORS support
 - ✅ In-memory data storage
 - ✅ CREATE, READ, DELETE endpoints
 - ✅ Error handling and validation
 
 #### Backend - AWS Lambda Functions
+
 - ✅ `create-item` - Creates and stores wishlist items
 - ✅ `list-items` - Retrieves user's items from DynamoDB
 - ✅ `delete-item` - Removes items from DynamoDB
@@ -34,6 +37,7 @@ All components are implemented and ready for local testing and AWS deployment.
 - ✅ Proper error handling and logging
 
 #### Documentation
+
 - ✅ README.md - Complete project overview
 - ✅ ARCHITECTURE.md - System design and diagrams
 - ✅ DEPLOYMENT.md - Step-by-step AWS deployment guide
@@ -44,23 +48,28 @@ All components are implemented and ready for local testing and AWS deployment.
 ## 🎯 Features Implemented
 
 ### Core Features
+
 1. **Add Items to Wishlist**
+
    - Product URL input
    - Price entry
    - Custom item naming
    - Configurable investment parameters (years, return rate)
 
 2. **View Wishlist**
+
    - Grid layout of item cards
    - Real-time summary statistics
    - Visual gain indicators with progress bars
 
 3. **Investment Calculations**
+
    - Future value formula: FV = Price × (1 + r)^t
    - Displays potential gains in dollars and percentage
    - Configurable time periods and return rates
 
 4. **Delete Items**
+
    - Hover-to-reveal delete buttons
    - Confirmation dialogs
    - Instant UI updates
@@ -72,6 +81,7 @@ All components are implemented and ready for local testing and AWS deployment.
    - Item count
 
 ### User Experience
+
 - Clean, modern UI with purple gradient theme
 - Responsive design (mobile, tablet, desktop)
 - Loading states and error handling
@@ -86,18 +96,21 @@ All components are implemented and ready for local testing and AWS deployment.
 ### Technology Stack
 
 **Frontend:**
+
 - React 19.2.0
 - Vite 7.2.4 (build tool)
 - Vanilla CSS (no framework dependencies)
 - ES6+ JavaScript
 
 **Backend (Development):**
+
 - Node.js
 - Express 4.18.2
 - In-memory storage
 - CORS enabled
 
 **Backend (Production):**
+
 - AWS Lambda (Node.js 18.x runtime)
 - Amazon DynamoDB (NoSQL database)
 - Amazon API Gateway (REST API)
@@ -106,6 +119,7 @@ All components are implemented and ready for local testing and AWS deployment.
 ### Data Model
 
 **DynamoDB Table: ImpulseByeItems**
+
 ```
 Partition Key: userId (String)
 Sort Key: itemId (String)
@@ -136,15 +150,19 @@ GET    /health             - Health check (mock server)
 ### AWS Service Categories ✅
 
 **Compute** (Required: Pick at least one)
+
 - ✅ AWS Lambda - All API operations run serverless
 
 **Storage** (Required: Pick at least one)
+
 - ✅ Amazon S3 - Frontend static website hosting
 
 **Networking** (Required: Pick at least one)
+
 - ✅ Amazon API Gateway - RESTful API for client-server communication
 
 **Database** (Required: Pick at least one)
+
 - ✅ Amazon DynamoDB - NoSQL data persistence
 
 ### Application Requirements ✅
@@ -169,6 +187,7 @@ GET    /health             - Health check (mock server)
 **Development**: $0 (local mock server)
 
 **Production** (monthly estimates for 1000 users):
+
 - DynamoDB: $0.25 (10k reads/writes)
 - Lambda: $0.20 (10k invocations)
 - API Gateway: $0.035 (10k requests)
@@ -176,6 +195,7 @@ GET    /health             - Health check (mock server)
 - **Total: ~$1/month** (within free tier!)
 
 **Cost Optimizations:**
+
 - Serverless architecture (no idle costs)
 - DynamoDB on-demand pricing (pay per use)
 - No NAT gateways or load balancers needed
@@ -186,19 +206,23 @@ GET    /health             - Health check (mock server)
 ## 📊 Business Value
 
 ### Problem Solved
+
 Many people make impulse purchases without considering the long-term financial impact. This app helps users:
+
 - Visualize opportunity costs
 - Make more informed decisions
 - Build better saving/investing habits
 - Delay gratification with data-driven insights
 
 ### Target Users
+
 - Young professionals learning financial literacy
 - Anyone prone to impulse purchases
 - Budget-conscious shoppers
 - Investment-minded individuals
 
 ### Competitive Advantages
+
 - Simple, focused UX (single purpose)
 - No account required for quick use
 - Visual comparisons make impact clear
@@ -210,12 +234,14 @@ Many people make impulse purchases without considering the long-term financial i
 ## 🔮 Future Enhancements
 
 ### Short-term (1-3 months)
+
 - [ ] User authentication (Amazon Cognito)
 - [ ] CloudFront CDN for HTTPS + performance
 - [ ] CloudWatch monitoring and alarms
 - [ ] Export wishlist to CSV/PDF
 
 ### Medium-term (3-6 months)
+
 - [ ] Price tracking and alerts
 - [ ] Category organization
 - [ ] Shared wishlists
@@ -223,6 +249,7 @@ Many people make impulse purchases without considering the long-term financial i
 - [ ] Mobile app (React Native)
 
 ### Long-term (6+ months)
+
 - [ ] Machine learning price predictions
 - [ ] Integration with real stock market data
 - [ ] Social features (compare with friends)
@@ -234,6 +261,7 @@ Many people make impulse purchases without considering the long-term financial i
 ## 🧪 Testing
 
 ### Local Testing
+
 ```bash
 # Backend
 cd backend/mock-server
@@ -249,6 +277,7 @@ npm run dev
 ```
 
 ### Manual Test Checklist
+
 - [ ] Add item with valid URL and price
 - [ ] Add item with custom name
 - [ ] Change investment years and return rate
@@ -260,6 +289,7 @@ npm run dev
 - [ ] Test error states (backend offline)
 
 ### AWS Deployment Testing
+
 - [ ] Create DynamoDB table
 - [ ] Deploy all Lambda functions
 - [ ] Configure API Gateway
@@ -271,13 +301,13 @@ npm run dev
 
 ## 📚 Documentation Files
 
-| File | Purpose |
-|------|---------|
-| `README.md` | Project overview, features, quick start |
-| `ARCHITECTURE.md` | System design, AWS services, diagrams |
-| `DEPLOYMENT.md` | Detailed AWS deployment steps |
-| `QUICKSTART.md` | Local development guide |
-| `project.txt` | CSCI3124 assignment requirements |
+| File              | Purpose                                 |
+| ----------------- | --------------------------------------- |
+| `README.md`       | Project overview, features, quick start |
+| `ARCHITECTURE.md` | System design, AWS services, diagrams   |
+| `DEPLOYMENT.md`   | Detailed AWS deployment steps           |
+| `QUICKSTART.md`   | Local development guide                 |
+| `project.txt`     | CSCI3124 assignment requirements        |
 
 ---
 
@@ -286,16 +316,19 @@ npm run dev
 For CSCI3124 recorded presentation (15 min max):
 
 1. **Introduction (2 min)**
+
    - Show student ID
    - Project overview and motivation
    - Demo of problem it solves
 
 2. **Architecture (3 min)**
+
    - Show architecture diagram
    - Explain AWS services chosen
    - Justify technology decisions
 
 3. **Live Demo (5 min)**
+
    - Add multiple items
    - Show calculations
    - Demonstrate delete
@@ -303,6 +336,7 @@ For CSCI3124 recorded presentation (15 min max):
    - Highlight summary dashboard
 
 4. **Technical Deep Dive (3 min)**
+
    - Show DynamoDB table
    - Show Lambda functions
    - Show API Gateway configuration
@@ -344,6 +378,7 @@ For CSCI3124 recorded presentation (15 min max):
 ## 🚀 Ready for Deployment!
 
 **Current Status:**
+
 - ✅ All code written and tested locally
 - ✅ Backend server runs on port 4000
 - ✅ Frontend dev server runs on port 5173
@@ -352,6 +387,7 @@ For CSCI3124 recorded presentation (15 min max):
 - ⏭️ Ready for AWS deployment (follow DEPLOYMENT.md)
 
 **To Deploy to AWS:**
+
 1. Follow step-by-step guide in `DEPLOYMENT.md`
 2. Provision DynamoDB table
 3. Deploy Lambda functions

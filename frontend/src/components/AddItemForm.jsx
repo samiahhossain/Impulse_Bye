@@ -13,7 +13,7 @@ export default function AddItemForm({ userId, onAdd }) {
 
   async function submit(e) {
     e.preventDefault();
-    
+
     // Validation
     if (!url.trim()) {
       setError('Please enter a product URL');
@@ -39,12 +39,12 @@ export default function AddItemForm({ userId, onAdd }) {
         price: totalPrice,
         salesTaxRate: Number(salesTaxRate),
         targetYears: Number(targetYears),
-        expectedReturn: Number(expectedReturn) / 100
+        expectedReturn: Number(expectedReturn) / 100,
       };
-      
+
       const item = await createItem(payload);
       onAdd(item);
-      
+
       // Reset form
       setUrl('');
       setName('');
@@ -77,9 +77,9 @@ export default function AddItemForm({ userId, onAdd }) {
   return (
     <form onSubmit={submit} className="add-item-form">
       <h2>➕ Add to Wishlist</h2>
-      
+
       {error && <div className="form-error">{error}</div>}
-      
+
       <div className="form-row">
         <div className="form-group flex-2">
           <label htmlFor="url">Product URL *</label>
@@ -87,13 +87,13 @@ export default function AddItemForm({ userId, onAdd }) {
             id="url"
             type="url"
             value={url}
-            onChange={e => setUrl(e.target.value)}
+            onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com/product"
             disabled={loading}
             required
           />
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="price">Price ($) *</label>
           <input
@@ -102,13 +102,13 @@ export default function AddItemForm({ userId, onAdd }) {
             step="0.01"
             min="0.01"
             value={price}
-            onChange={e => setPrice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
             placeholder="99.99"
             disabled={loading}
             required
           />
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="salesTaxRate">Sales Tax (%)</label>
           <input
@@ -118,7 +118,7 @@ export default function AddItemForm({ userId, onAdd }) {
             min="0"
             max="100"
             value={salesTaxRate}
-            onChange={e => setSalesTaxRate(e.target.value)}
+            onChange={(e) => setSalesTaxRate(e.target.value)}
             placeholder="14"
             disabled={loading}
           />
@@ -132,13 +132,13 @@ export default function AddItemForm({ userId, onAdd }) {
             id="name"
             type="text"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Auto-extracted from URL if left blank"
             disabled={loading}
             maxLength={100}
           />
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="targetYears">Investment Period (years)</label>
           <input
@@ -147,7 +147,7 @@ export default function AddItemForm({ userId, onAdd }) {
             min="1"
             max="50"
             value={targetYears}
-            onChange={e => setTargetYears(e.target.value)}
+            onChange={(e) => setTargetYears(e.target.value)}
             disabled={loading}
           />
         </div>
@@ -161,7 +161,7 @@ export default function AddItemForm({ userId, onAdd }) {
             min="0"
             max="100"
             value={expectedReturn}
-            onChange={e => setExpectedReturn(e.target.value)}
+            onChange={(e) => setExpectedReturn(e.target.value)}
             disabled={loading}
           />
         </div>

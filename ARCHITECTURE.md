@@ -84,30 +84,37 @@ Example:
 ### Required Services ✅
 
 **Compute** (Pick at least one):
+
 - ✅ AWS Lambda - Serverless functions for all API operations
 
 **Storage** (Pick at least one):
+
 - ✅ Amazon S3 - Static website hosting for React frontend
 
 **Networking** (Pick at least one):
+
 - ✅ Amazon API Gateway - REST API for frontend-backend communication
 
 **Database** (Pick at least one):
+
 - ✅ Amazon DynamoDB - NoSQL database for wishlist items
 
 ### Optional Services (Enhancement Opportunities)
 
 **Security**:
+
 - Amazon Cognito - User authentication
 - AWS WAF - Web application firewall
 - AWS Certificate Manager - SSL/TLS certificates
 
 **Management**:
+
 - Amazon CloudWatch - Logging and monitoring
 - AWS CloudFormation - Infrastructure as Code
 - AWS X-Ray - Distributed tracing
 
 **Content Delivery**:
+
 - Amazon CloudFront - CDN for S3 static site
 
 ## Security Architecture
@@ -125,6 +132,7 @@ Example:
 ```
 
 ### Security Measures
+
 1. **Transport Security**: HTTPS for all API calls
 2. **Access Control**: IAM roles with least privilege
 3. **Input Validation**: Client and server-side validation
@@ -132,6 +140,7 @@ Example:
 5. **Data Encryption**: DynamoDB encryption at rest
 
 ### Security Enhancements (Future)
+
 - Add Cognito user pools for authentication
 - Implement API keys in API Gateway
 - Add request throttling and rate limiting

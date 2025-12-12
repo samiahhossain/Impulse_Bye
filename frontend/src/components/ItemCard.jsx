@@ -7,17 +7,21 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
     name: item.name,
     price: item.price,
     targetYears: item.targetYears,
-    expectedReturn: item.expectedReturn * 100
+    expectedReturn: item.expectedReturn * 100,
   });
 
-  const { itemId, name, url, price, targetYears, expectedReturn, fv, salesTaxRate } = item;
+  const { itemId, name, url, price, targetYears, expectedReturn, fv } = item;
   const gain = fv - price;
   const gainPercent = ((gain / price) * 100).toFixed(1);
 
   async function handleDelete(e) {
     // Prevent card click from triggering when pressing delete
     e.stopPropagation();
-    if (!window.confirm(`Are you sure you want to remove "${name}" from your wishlist?`)) {
+    if (
+      !window.confirm(
+        `Are you sure you want to remove "${name}" from your wishlist?`
+      )
+    ) {
       return;
     }
     setDeleting(true);
@@ -37,7 +41,7 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
         url: url,
         price: Number(editData.price),
         targetYears: Number(editData.targetYears),
-        expectedReturn: Number(editData.expectedReturn) / 100
+        expectedReturn: Number(editData.expectedReturn) / 100,
       };
       await onUpdate(itemId, updatedItem);
       setEditing(false);
@@ -53,7 +57,7 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
       name: item.name,
       price: item.price,
       targetYears: item.targetYears,
-      expectedReturn: item.expectedReturn * 100
+      expectedReturn: item.expectedReturn * 100,
     });
     setEditing(false);
   }
@@ -67,16 +71,23 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
 
   if (editing) {
     return (
-      <div className="item-card editing" onClick={handleCardClick} role="button" tabIndex={0}>
+      <div
+        className="item-card editing"
+        onClick={handleCardClick}
+        role="button"
+        tabIndex={0}
+      >
         <div className="edit-form">
           <h3 className="edit-title">✏️ Edit Item</h3>
-          
+
           <div className="edit-field">
             <label>Item Name</label>
             <input
               type="text"
               value={editData.name}
-              onChange={e => setEditData(prev => ({ ...prev, name: e.target.value }))}
+              onChange={(e) =>
+                setEditData((prev) => ({ ...prev, name: e.target.value }))
+              }
               placeholder="Item name"
             />
           </div>
@@ -88,7 +99,9 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
               step="0.01"
               min="0.01"
               value={editData.price}
-              onChange={e => setEditData(prev => ({ ...prev, price: e.target.value }))}
+              onChange={(e) =>
+                setEditData((prev) => ({ ...prev, price: e.target.value }))
+              }
             />
           </div>
 
@@ -99,7 +112,12 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
               min="1"
               max="50"
               value={editData.targetYears}
-              onChange={e => setEditData(prev => ({ ...prev, targetYears: e.target.value }))}
+              onChange={(e) =>
+                setEditData((prev) => ({
+                  ...prev,
+                  targetYears: e.target.value,
+                }))
+              }
             />
           </div>
 
@@ -111,7 +129,12 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
               min="0"
               max="100"
               value={editData.expectedReturn}
-              onChange={e => setEditData(prev => ({ ...prev, expectedReturn: e.target.value }))}
+              onChange={(e) =>
+                setEditData((prev) => ({
+                  ...prev,
+                  expectedReturn: e.target.value,
+                }))
+              }
             />
           </div>
 
@@ -129,16 +152,24 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
   }
 
   return (
-    <div className="item-card" onClick={handleCardClick} role="button" tabIndex={0}>
+    <div
+      className="item-card"
+      onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+    >
       <div className="card-actions">
-        <button 
+        <button
           className="edit-btn"
-          onClick={(e) => { e.stopPropagation(); setEditing(true); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setEditing(true);
+          }}
           title="Edit item"
         >
           ✏️
         </button>
-        <button 
+        <button
           className="delete-btn"
           onClick={handleDelete}
           disabled={deleting}
@@ -149,12 +180,18 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
         </button>
       </div>
 
+      {item.imageUrl && (
+        <div className="item-image-container">
+          <img src={item.imageUrl} alt={name} className="item-image" />
+        </div>
+      )}
+
       <div className="item-header">
         <h3 className="item-name">{name}</h3>
         {url && (
-          <a 
-            href={url} 
-            target="_blank" 
+          <a
+            href={url}
+            target="_blank"
             rel="noopener noreferrer"
             className="item-link"
             title="View product"
@@ -169,22 +206,18 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
           <span className="label">Price now (incl. tax):</span>
           <span className="price">${price.toFixed(2)}</span>
         </div>
-        {typeof salesTaxRate === 'number' && (
-          <div className="price-row">
-            <span className="label">Sales Tax:</span>
-            <span className="price">{salesTaxRate.toFixed(1)}%</span>
-          </div>
-        )}
         <div className="price-row highlight-row">
-          <span className="label">If invested ({targetYears}y @ {(expectedReturn * 100).toFixed(1)}%):</span>
+          <span className="label">
+            If invested ({targetYears}y @ {(expectedReturn * 100).toFixed(1)}%):
+          </span>
           <span className="future-value">${fv.toFixed(2)}</span>
         </div>
       </div>
 
       <div className="gain-indicator">
         <div className="gain-bar">
-          <div 
-            className="gain-fill" 
+          <div
+            className="gain-fill"
             style={{ width: `${Math.min(gainPercent, 100)}%` }}
           />
         </div>
@@ -195,7 +228,9 @@ export default function ItemCard({ item, onDelete, onUpdate }) {
       </div>
 
       <div className="item-footer">
-        <span className="item-meta">Added {new Date(item.createdAt).toLocaleDateString()}</span>
+        <span className="item-meta">
+          Added {new Date(item.createdAt).toLocaleDateString()}
+        </span>
       </div>
     </div>
   );

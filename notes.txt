@@ -1,3 +1,5 @@
 commas in big numbers
 counter to count how many times someone thought about it
 reasons field for why they want it
+investment growth tracking starting from when they added it??
+change progress bars and profit colors
