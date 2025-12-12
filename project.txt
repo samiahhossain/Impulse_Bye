@@ -1,0 +1,382 @@
+CSCI3124 Intro. to Cloud Computing – 2025 Fall
+Term Project
+Table of Contents
+Overview ........................................................................................................................................2
+Requirements.................................................................................................................................2
+AWS Service Categories Menu ......................................................................................................... 3
+Project Deliverables & Grade Distribution .....................................................................................5
+Final Written Report........................................................................................................................ 5
+Recorded Video Presentation .......................................................................................................... 7
+Appendix: Other AWS services you may use in your term project.................................................9
+Overview
+The technology of cloud computing changes more quickly than most other technology in
+software development, in fact this is part of why companies have flocked to putting their
+software in the cloud. They can ride this wave of technological advancement to keep their
+software on the cutting edge. The services and technologies you learn during this course will be
+deprecated, changed, or expanded upon within only a few years. For this reason, the most
+critical skill for you to develop in this course is your ability to dive into a cloud provider's
+service offerings, to learn what they have available, and how the services you are interested
+in work. To work in the field of cloud computing you must be confident that you can jump right
+in, figure services and tools out, and adapt to the changing technical "cloudscape".
+The term assignment is the primary driver for experiential learning in this course. We can only
+truly say you understand cloud computing once you've built and deployed working software in
+the cloud, which is why the term assignment is an individual assignment to be completed by
+you, and you only. To accomplish this goal will require tenacity, self-directed learning,
+experimentation and critical analysis. Every semester my students continue to amaze me with
+what they accomplish. You've got this!
+Requirements
+There are many career paths in cloud computing. From traditional app developers to data
+scientists, machine learning, IoT, cloud architect, cloud engineer, cloud systems administrator,
+cloud AI engineer, and even people just interested in supporting cloud app development
+(DevOps). For this reason, rather than describing a project for you to implement, I am leaving
+the nature of your project largely up to you to decide. There will be a menu with different
+categories of AWS services you must select from, however what you build with these
+technologies is entirely up to you. Use this opportunity to gain experience with something you
+might want to work with further when you enter industry or to build some cool thing you can
+further develop and even bring to market.
+No matter what services you choose from the menu, you will also need to develop the software
+that runs on the services you select. You are not allowed to use existing code (not even your
+own code from other courses or personal projects), all code you write for this course must be
+original and entirely created by you for this course. The software does not have to be a
+traditional web page. It could be an API, a typical 2 or 3-tier app, a website, a mobile app that
+talks to an API, IoT devices, GenAI applications, etc. The choices are endless, and creativity is
+your friend to keep you engaged and passionate about learning these difficult services.
+Regarding the size of your application, there’s no strict limit on how big it can be. However, it
+shouldn’t be just a simple “Hello World” program. You should first review the service
+requirements and then decide on the type of application you want to build. Your application
+should include meaningful logic that addresses either a real-world use case or a well-defined
+hypothetical one.
+Each category below will require you to select several items from the list of choices to include in
+the design and implementation of your project. Pick the things you are most interested in
+learning about or doing. The instructor has no preferences here, all choices are equally valid. If
+you select services that aren't listed here, please check with the instructor to determine which
+category they belong to before you proceed. Additionally, when selecting and designing your
+applications, it's essential to consider which AWS services you will utilize. Ensure that the
+chosen services are compatible with and supported by the AWS Academy Learner Lab. It’s fine
+you use your own AWS account but be alert about the cost.
+AWS Service Categories Menu
+Compute – Pick at least one:
+• Amazon EC2
+• Amazon EC2 Auto Scaling
+• Amazon EC2 Image Builder
+• Amazon Lightsail
+• AWS App Runner
+• AWS Batch
+• AWS Elastic Beanstalk
+• AWS Fargate
+• AWS Lambda
+• AWS Serverless Application Repository
+• AWS Outposts
+• AWS Wavelength
+• Amazon Elastic Container Registry
+• Amazon Elastic Container Service
+• Amazon Elastic Kubernetes Service
+• AWS Auto Scaling
+Storage – Pick at least one:
+• AWS Backup
+• Amazon Elastic Block Store (EBS)
+• AWS Elastic Disaster Recovery
+• Amazon Elastic File System (EFS)
+• Amazon File Cache
+• Amazon FSx for Lustre
+• Amazon FSx for NetApp ONTAP
+• Amazon FSx for OpenZFS
+• Amazon FSx for Windows File Server
+• Amazon Simple Storage Service (S3)
+Networking and Content Delivery – Pick at least one:
+• Amazon API Gateway
+• Amazon CloudFront
+• Amazon Route 53
+• AWS Verified Access
+• Amazon VPC
+• Amazon VPC Lattice
+• AWS App Mesh
+• AWS Cloud Map
+• AWS Direct Connect
+• AWS Global Accelerator
+• AWS PrivateLink
+• AWS Private 5G
+• AWS Transit Gateway
+• AWS VPN
+• Elastic Load Balancing
+Database – Pick at least one:
+• Amazon RDS
+• Amazon DynamoDB
+• Amazon ElastiCache
+• Amazon Keyspaces (for Apache Cassandra)
+• Amazon MemoryDB for Redis
+• Amazon Neptune
+• Amazon Quantum Ledger Database (Amazon QLDB)
+• Amazon Timestream
+• Amazon DocumentDB (with MongoDB compatibility)
+• Amazon Lightsail managed databases
+Application integration – No requirement:
+• AWS Step Functions
+• Amazon AppFlow
+• AWS B2B Data Interchange
+• Amazon EventBridge
+• Amazon Managed Workflows for Apache Airflow (MWAA)
+• Amazon MQ
+• Amazon Simple Notification Service
+• Amazon Simple Queue Service
+• Amazon Simple Workflow Service
+• AWS AppSync
+• AWS AppFabric
+• Amazon Chime
+• Amazon Pinpoint
+• Amazon SES
+Management and Governance – No requirement:
+• AWS Chatbot
+• AWS CloudFormation
+• AWS CloudTrail
+• Amazon CloudWatch
+• AWS Compute Optimizer
+• AWS Console Mobile Application
+• AWS Control Tower
+• AWS Config
+• AWS Health Dashboard
+• AWS Launch Wizard
+• AWS License Manager
+• Amazon Managed Grafana
+• Amazon Managed Service for Prometheus
+• AWS Organizations
+• AWS OpsWorks
+• AWS Proton
+• Service Catalog
+• AWS Systems Manager
+• AWS Trusted Advisor
+The services and requirements mentioned above provide all you need to develop a complete,
+typical 3-tier application, though your applications are not limited to this architecture.
+Additional services are listed in the appendix at the end of this document for your reference,
+especially if your application involves more tools or areas such as data analytics, Machine
+Learning, IoT, etc. You are welcome to explore and use these services; however, no extra marks
+will be awarded for doing so.
+We are restricted to the services supported in the AWS Academy learner lab sandbox. Not all
+AWS services are supported, and sometimes they don't work as well in the sandbox as they do
+in the real AWS infrastructure (for example IAM is extremely limited in AWS Academy
+unfortunately). Pay particularly close attention to the necessity to use the existing LabRole IAM
+role created for the lab environment which grants access from one service to another within
+AWS.
+We DON’T require students to provision their infrastructure with Infrastructure as Code (IaC).
+You are welcome to use IaC to provision your infrastructure, but there won’t be bonus marks.
+Project Deliverables & Grade Distribution
+The term assignment represents a combined 35% of your overall final grade. The deliverables
+contain two components:
+• Final Written Report – 60%
+• Recorded Video Presentation – 40%
+Be aware that you do not need to submit your source code for the project.
+Final Written Report
+Your final report will summarize the state of your term assignment and what you have
+achieved. It will also include your discussion and critical analysis of the security and business
+consideration aspects of your project.
+Please prepare a PDF document that answers these questions and provides the information
+requested below:
+• First, introduce your project. What is it? What is it supposed to do? Give the markers the
+information they need to evaluate whether your choices in later questions were good
+choices or bad choices. In other words, give them the context of your application and
+what it is supposed to achieve, who its users are, and what its performance targets
+should be.
+• Describe how you met your AWS service category requirements: you will list the services
+you selected, and provide a comparison of alternative services, explaining why you
+chose the services in your system over the alternatives.
+• Describe your final architecture:
+o The architecture of your final system. You must draw the architecture diagram
+using the free tool https://app.diagrams.net/. You should be able to learn how to
+use this tool by yourself.
+o How do all of the application components fit together to deliver your application?
+o Everything about your data. For example, data format, source, size, storage
+solution, and so on.
+o What programming languages did you use (and why) and what parts of your
+application required code?
+o How is your application deployed to the cloud?
+o How do the components integrate to make a full application on cloud?
+• How does your application architecture keep data secure at all layers? If it does not, if
+there are vulnerabilities, please explain where your data is vulnerable and how you
+could address these vulnerabilities with further work. IAM is not required to be
+implemented for this project due to the restrictions of the AWS Academy Learner Lab,
+but you can explain what you can do to secure your applications and data using IAM.
+o Which security measures are used to achieve the data security described in the
+previous question? List them, and explain any choices you made for each
+mechanism (technology you used, algorithm, cloud provider service, etc.)
+• An analysis of the cost metrics for operating your system. You will calculate the up-front,
+on-going, and additional costs to build this system in the real world. You will also explain
+alternative approaches that might have saved you money, or alternatively provide
+justification for a more expensive solution.
+• How would your application evolve if you were to continue development? What
+features might you add next and which cloud services or solutions architectures would
+you use to implement those features?
+The rubric of the report:
+10 points
+You provided clear, thorough, and accurate answers to all the questions, and your explanations
+were well-articulated. Your cloud architecture is well-structured, aligns perfectly with your
+explanations, and is easy to understand. We found no significant areas needing changes in your
+architecture, services, or security approach.
+7-10 points
+You delivered reasonable answers to the questions, your architecture is well defined and we
+understand how you achieved your project, your analysis of your architecture's quality shows
+that you've achieved a broad understanding of the mechanisms available to you and how to use
+them correctly. You showed some evidence of a thorough understanding of your project's
+security and business considerations.
+5-7 points
+Your responses provide the minimum amount of information to answer the questions, and do
+not expand enough to demonstrate a thorough understanding of your project's cloud
+computing considerations. We may see evidence of poor choices in your system that reflect a
+lack of understanding of cloud computing considerations.
+3-5 points
+Your response is an obvious minimal effort to answer the questions yet provides no detail
+demonstrating your understanding of cloud computing considerations in relation to your
+project.
+0-3 points
+You are missing responses to questions or have responses that do not show enough critical
+thought and analysis to warrant points.
+Recorded Video Presentation
+At the beginning of the video, please show your student ID card in front of the camera so the
+marker can clearly see all the information on the ID card. Keep your face visible throughout
+the entire meeting. Failing to do so will result in zero marks for the video presentation.
+During this presentation, your goal is to showcase your working application and demonstrate
+the successful implementation of your project. This is where you validate that your project
+functions as described. We won't be assessing the code quality of individual services you've
+implemented; rather, our focus is on the final working product. You will be expected to present
+the overall implementation, AWS configuration, and the full functionality of your system in its
+live, working state. The maximum length of the presentation is 15 minutes. The presentation
+could be reused for job seeking in the future if possible. For example, you can put the video in
+your S3 bucket and provide people a link to play it. This is your opportunity to proudly present
+your creation. It would be helpful to explain your project if you:
+• Prepare a few slides — they don’t need to be fancy. You can copy some content directly
+from your report, as it provides a good structure for your presentation.
+• Include diagrams where possible — they’re very helpful for illustrating your ideas.
+• Make sure your provisioned resources are ready before the presentation to save time. If
+you plan to demonstrate how you provision them, please demo the provisioning at the
+beginning of your presentation so everything is set up while you cover the other parts.
+The rubric of the presentation:
+5 points:
+The student clearly explains all the requested services. The application meets all the expected
+functionalities presented. The presentation is well-structured and clearly delivered.
+1-4 points:
+• The presentation lacks a clear structure, which makes the overall project difficult to
+follow.
+• The information provided does not sufficiently demonstrate that the designed system is
+fully functional.
+• The functionalities explained in the presentation do not completely align with what was
+shown in the demo.
+0 point:
+The student demonstrated minimal understanding of the project and was unable to clearly
+present their work. Very few functionalities were shown, and the content presented did not
+align with the demonstration.
+Appendix: Other AWS services you may use in your term project
+Analytics:
+• Amazon Athena
+• Amazon CloudSearch
+• Amazon DataZone
+• Amazon EMR
+• Amazon FinSpace
+• Amazon Kinesis
+• Amazon Data Firehose
+• Amazon Managed Service for Apache Flink
+• Amazon Kinesis Data Streams
+• Amazon Kinesis Video Streams
+• Amazon OpenSearch Service
+• Amazon OpenSearch Serverless
+• Amazon Redshift
+• Amazon Redshift Serverless
+• Amazon QuickSight
+• AWS Clean Rooms
+• AWS Data Exchange
+• AWS Data Pipeline
+• AWS Entity Resolution
+• AWS Glue
+• AWS Lake Formation
+• Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+Machine Learning:
+• Amazon Augmented AI
+• Amazon Bedrock
+• Amazon CodeGuru
+• Amazon Comprehend
+• Amazon DevOps Guru
+• Amazon Forecast
+• Amazon Fraud Detector
+• Amazon Kendra
+• Amazon Lex
+• Amazon Lookout for Metrics
+• Amazon Lookout for Vision
+• Amazon Monitron
+• Amazon PartyRock
+• Amazon Personalize
+• Amazon Polly
+• Amazon Rekognition
+• Amazon SageMaker
+• Amazon Textract
+• Amazon Transcribe
+• Amazon Translate
+• AWS DeepComposer
+• AWS DeepRacer
+• AWS HealthLake
+• AWS HealthScribe
+• AWS Panorama
+Internet of things (IoT):
+• AWS IoT 1-Click
+• AWS IoT Analytics
+• AWS IoT Button
+• AWS IoT Core
+• AWS IoT Device Defender
+• AWS IoT Device Management
+• AWS IoT Events
+• AWS IoT ExpressLink
+• AWS IoT FleetWise
+• AWS IoT Greengrass
+• AWS IoT SiteWise
+• AWS IoT TwinMaker
+Developer Tools:
+• AWS Application Composer
+• AWS Cloud9
+• AWS CloudShell
+• AWS CodeArtifact
+• AWS CodeBuild
+• Amazon CodeCatalyst
+• AWS CodeCommit
+• AWS CodeDeploy
+• AWS CodePipeline
+• Amazon Corretto
+• AWS Fault Injection Service
+• AWS X-Ray
+• AWS Amplify
+Security, identity, and compliance:
+• Amazon Cognito
+• Amazon Detective
+• Amazon GuardDuty
+• Amazon Inspector
+• Amazon Macie
+• Amazon Security Lake
+• Amazon Verified Permissions
+• AWS Artifact
+• AWS Audit Manager
+• AWS Certificate Manager
+• AWS CloudHSM
+• AWS Directory Service
+• AWS Firewall Manager
+• AWS Identity and Access Management
+• AWS Key Management Service
+• AWS Network Firewall
+• AWS Resource Access Manager
+• AWS Secrets Manager
+• AWS Security Hub
+• AWS Shield
+• AWS IAM Identity Center
+• AWS WAF
+End User Computing:
+• Amazon AppStream 2.0
+• Amazon WorkSpaces
+• Amazon WorkSpaces Core
+• Amazon WorkSpaces Thin Client
+• Amazon Workspaces Web
+Media:
+• Amazon Elastic Transcoder
+• Amazon Interactive Video Service
+• Amazon Nimble Studio
+• AWS Elemental Appliances and Software
+• AWS Elemental MediaConnect
+• AWS Elemental MediaConvert
+• AWS Elemental MediaLive
+• AWS Elemental MediaPackage
+• AWS Elemental MediaStore
+• AWS Elemental MediaTailor 
