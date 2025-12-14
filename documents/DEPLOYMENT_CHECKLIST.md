@@ -13,19 +13,19 @@ Use this checklist when deploying to AWS for your CSCI3124 project.
 
 ## ✅ AWS Account Setup
 
-- [ ] AWS Academy Learner Lab accessed
+- [ ✓] AWS Academy Learner Lab accessed
 - [ ] AWS CLI installed on local machine
 - [ ] AWS credentials configured (`aws configure` or AWS Academy CLI commands)
 - [ ] LabRole ARN copied (needed for Lambda)
-- [ ] Chosen AWS region (recommend: us-east-1)
+- [ ✓] Chosen AWS region (recommend: us-east-1)
 
 ## ✅ Phase 1: Database (DynamoDB)
 
-- [ ] Create DynamoDB table `ImpulseByeItems`
-- [ ] Set partition key: `userId` (String)
-- [ ] Set sort key: `itemId` (String)
-- [ ] Choose on-demand billing
-- [ ] Verify table created successfully
+- [ ✓] Create DynamoDB table `ImpulseByeItems`
+- [ ✓] Set partition key: `userId` (String)
+- [ ✓] Set sort key: `itemId` (String)
+- [ ✓] Choose on-demand billing
+- [ ✓] Verify table created successfully
 - [ ] Note table ARN
 
 ## ✅ Phase 2: Lambda Functions
@@ -238,12 +238,6 @@ Using curl or Postman:
 - [ ] All deadlines met
 
 ## 🎉 Post-Submission
-
-### Optional (Keep Running)
-
-- [ ] Monitor CloudWatch logs
-- [ ] Check costs in AWS Billing
-- [ ] Share with friends/portfolio
 
 ### Cleanup (When Done)
 

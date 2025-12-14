@@ -340,3 +340,5 @@ This project is for educational purposes as part of CSCI3124 Cloud Computing cou
 ## 👤 Author
 
 Built with ❤️ for making better financial decisions!
+
+Available at: <http://impulse-bye-frontend-20251214.s3-website-us-east-1.amazonaws.com/>
