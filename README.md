@@ -10,9 +10,7 @@ Impulse Bye is a wishlist tracking application that helps you think twice before
 
 - **Wishlist Management**: Track items you're thinking about buying with URLs and prices
 - **Investment Comparison**: See what your money could become if invested instead (configurable return rate and time period)
-- **Visual Analytics**: Beautiful cards showing price vs. future value with growth indicators
-- **User-Friendly**: Simple, intuitive interface with real-time updates
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Visual Analytics**: Cards showing price vs. future value with growth indicators
 
 ---
 
@@ -42,7 +40,7 @@ This is a full-stack cloud application built for AWS:
 - **API**: Amazon API Gateway (REST API)
 - **Storage**: Amazon S3 (static site hosting)
 
-### AWS Services Used (meets project requirements)
+### AWS Services Used
 
 - ✅ **Compute**: AWS Lambda
 - ✅ **Storage**: Amazon S3 (for frontend hosting)
@@ -50,14 +48,6 @@ This is a full-stack cloud application built for AWS:
 - ✅ **Networking**: Amazon API Gateway
 
 ---
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ and npm
-- AWS Account (for production deployment)
-- AWS CLI configured (optional)
 
 ### Local Development
 
@@ -103,111 +93,7 @@ Navigate to `http://localhost:5173` and start adding items!
 
 ## ☁️ AWS Deployment
 
-### Step 1: Create DynamoDB Table
-
-```bash
-aws dynamodb create-table \
-  --table-name ImpulseByeItems \
-  --attribute-definitions \
-    AttributeName=userId,AttributeType=S \
-    AttributeName=itemId,AttributeType=S \
-  --key-schema \
-    AttributeName=userId,KeyType=HASH \
-    AttributeName=itemId,KeyType=RANGE \
-  --billing-mode PAY_PER_REQUEST
-```
-
-### Step 2: Deploy Lambda Functions
-
-**Create IAM Role** (use existing LabRole in AWS Academy):
-
-- Attach policies: `AmazonDynamoDBFullAccess`, `CloudWatchLogsFullAccess`
-
-**Package and deploy each Lambda:**
-
-```bash
-# Create Item Lambda
-cd backend/create-item
-zip -r create-item.zip .
-aws lambda create-function \
-  --function-name impulse-bye-create-item \
-  --runtime nodejs18.x \
-  --role arn:aws:iam::YOUR_ACCOUNT:role/LabRole \
-  --handler index.handler \
-  --zip-file fileb://create-item.zip \
-  --environment Variables={TABLE_NAME=ImpulseByeItems}
-
-# List Items Lambda
-cd ../list-items
-zip -r list-items.zip .
-aws lambda create-function \
-  --function-name impulse-bye-list-items \
-  --runtime nodejs18.x \
-  --role arn:aws:iam::YOUR_ACCOUNT:role/LabRole \
-  --handler index.handler \
-  --zip-file fileb://list-items.zip \
-  --environment Variables={TABLE_NAME=ImpulseByeItems}
-
-# Delete Item Lambda
-cd ../delete-item
-zip -r delete-item.zip .
-aws lambda create-function \
-  --function-name impulse-bye-delete-item \
-  --runtime nodejs18.x \
-  --role arn:aws:iam::YOUR_ACCOUNT:role/LabRole \
-  --handler index.handler \
-  --zip-file fileb://delete-item.zip \
-  --environment Variables={TABLE_NAME=ImpulseByeItems}
-```
-
-### Step 3: Create API Gateway
-
-1. Go to AWS Console → API Gateway
-2. Create a new REST API named "ImpulseByeAPI"
-3. Create resources and methods:
-   - `POST /items` → `impulse-bye-create-item`
-   - `GET /items` → `impulse-bye-list-items`
-   - `DELETE /items/{itemId}` → `impulse-bye-delete-item`
-4. Enable CORS on all methods
-5. Deploy API to a stage (e.g., `prod`)
-6. Note the Invoke URL
-
-### Step 4: Deploy Frontend to S3
-
-```bash
-cd frontend
-
-# Update API_BASE in src/api.js with your API Gateway URL
-# Or set environment variable:
-# VITE_API_BASE=https://YOUR_API_ID.execute-api.REGION.amazonaws.com/prod
-
-# Build for production
-npm run build
-
-# Create S3 bucket
-aws s3 mb s3://impulse-bye-frontend-YOUR_NAME
-
-# Configure for static website hosting
-aws s3 website s3://impulse-bye-frontend-YOUR_NAME \
-  --index-document index.html
-
-# Upload files
-aws s3 sync dist/ s3://impulse-bye-frontend-YOUR_NAME --acl public-read
-
-# Set bucket policy for public read
-aws s3api put-bucket-policy --bucket impulse-bye-frontend-YOUR_NAME --policy '{
-  "Version": "2012-10-17",
-  "Statement": [{
-    "Sid": "PublicReadGetObject",
-    "Effect": "Allow",
-    "Principal": "*",
-    "Action": "s3:GetObject",
-    "Resource": "arn:aws:s3:::impulse-bye-frontend-YOUR_NAME/*"
-  }]
-}'
-```
-
-Your app will be available at: `http://impulse-bye-frontend-YOUR_NAME.s3-website-REGION.amazonaws.com`
+App is available at: `http://impulse-bye-frontend-20251214.s3-website-REGION.amazonaws.com`
 
 ---
 
@@ -281,10 +167,6 @@ Potential Gain = $201.28 (40% growth)
 ---
 
 ## 💰 Cost Analysis
-
-### Development (Mock Server)
-
-- **Cost**: $0 (runs locally)
 
 ### AWS Production (estimated monthly costs for low usage)
 
