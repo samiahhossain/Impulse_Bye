@@ -259,3 +259,4 @@ Your full-stack cloud application is now running!
 **Health Check:** http://localhost:4000/health
 
 Start adding items and see your potential savings grow! 💰
+
